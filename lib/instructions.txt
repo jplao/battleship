@@ -1,0 +1,11 @@
+Here are the instructions:
+
+You and the computer each have two ships.
+First, the computer will place their ships on the board.
+Then, you will place your ships on the board.
+Each player will then take turns guessing where the other player placed their ships.
+The game will notify you if your guess was a hit or a miss.
+And then the other player will take their turn, and so on.
+The first player to hit and sink all of the other player's ships wins!
+
+Happy hunting!
