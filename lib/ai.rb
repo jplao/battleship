@@ -1,2 +1,7 @@
 class AI
-end 
+  attr_reader :guesses
+
+  def intitialize
+    @guesses = []
+  end
+end
