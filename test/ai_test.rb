@@ -9,4 +9,10 @@ class AITest < Minitest::Test
     assert_instance_of AI, ai
   end
 
+  def test_ai_guesses_start_empty
+    ai = AI.new
+
+    assert_equal nil, ai.guesses
+  end
+
 end
