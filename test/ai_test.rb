@@ -25,4 +25,13 @@ class AITest < Minitest::Test
     assert_equal [guess_1, guess_2], ai.guesses
   end
 
+  def test_ai_does_not_make_same_guess
+    ai = AI.new
+
+    guess_1 = ai.guess("A1")
+    guess_2 = ai.guess("A1")
+
+    refute_equal ["A1", "A1"], ai.guesses
+  end
+
 end
