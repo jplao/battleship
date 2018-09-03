@@ -5,6 +5,7 @@ class GamePlay
   def intro(response)
     if ["p", "play"].include? response.to_s
       p "Lets's start a new game!"
+      ship_layout
     elsif ["i", "instructions"].include? response.to_s
       instructions = File.open("./lib/instructions.txt", "r")
       p instructions.read
@@ -15,5 +16,14 @@ class GamePlay
       response = gets.chomp
       intro(response)
     end
+  end
+
+  def ship_layout
+    # AI places ships
+    layout_phase = File.open("./lib/ship_layout_phase.txt", "r")
+    p layout_phase.read
+    player_destroyer_location = gets.chomp
+    p "Enter the location for the three-unit ship"
+    player_submarine_location = gets.chomp
   end
 end

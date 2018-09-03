@@ -1,3 +1,5 @@
+require 'pry'
+
 class Board
 
   attr_reader :board_layout
@@ -23,6 +25,14 @@ class Board
     @board_layout
   end
 
+  def place_ship(start, finish)
+    ship_coord_start = location_keys[start]
+    ship_coord_finish = location_keys[finish]
+    @board_layout[ship_coord_start[0]][[ship_coord_start][1]] = "o"
+    @board_layout[ship_coord_finish[0]][[ship_coord_finish][1]] = "o"
+    binding.pry
+  end
+
   def location_keys
     { "A1" => [0, 0],
       "A2" => [0, 1],
@@ -42,5 +52,5 @@ class Board
       "D4" => [3, 3]
     }
   end
-
+binding.pry
 end
