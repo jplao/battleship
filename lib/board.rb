@@ -22,15 +22,14 @@ class Board
       print row.join("\t")
     print "\n"
     end
-    @board_layout
   end
 
   def place_ship(start, finish)
     ship_coord_start = location_keys[start]
     ship_coord_finish = location_keys[finish]
-    @board_layout[ship_coord_start[0]][[ship_coord_start][1]] = "o"
-    @board_layout[ship_coord_finish[0]][[ship_coord_finish][1]] = "o"
-    binding.pry
+    @board_layout[ship_coord_start[0]][ship_coord_start[1]] = "o"
+    @board_layout[ship_coord_finish[0]][ship_coord_finish[1]] = "o"
+    @board_layout
   end
 
   def location_keys
