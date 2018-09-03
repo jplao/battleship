@@ -19,6 +19,15 @@ class BoardTest < Minitest::Test
     [".", ".", ".", "."]]
 
     assert_equal expected, board.new_game_board
+    assert_equal expected, board.board_layout
+  end
+
+  def test_location_keys_returns_an_array
+    board = Board.new
+
+    assert_equal [0, 0], board.location_keys["A1"]
+    assert_equal [3, 2], board.location_keys["D3"]
+    assert_equal nil, board.location_keys["F7"]
   end
 
 end
