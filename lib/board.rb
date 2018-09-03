@@ -9,14 +9,14 @@ class Board
   end
 
   def new_game_board
-    @board_layout = Array.new(4, ".").map{|row| Array.new(4, ".")}
+    board = Array.new(4, ".").map{|row| Array.new(4, ".")}
     row_label = ["1", "2", "3", "4"]
     column_label = ["A", "B", "C", "D"]
 
     print "\t"
     print row_label.join("\t")
     print "\n"
-    @board_layout.each_with_index do |row, i|
+    @board_layout = board.each_with_index do |row, i|
       print column_label[i]
       print "\t"
       print row.join("\t")
@@ -24,12 +24,18 @@ class Board
     end
   end
 
-  def place_ship(start, finish)
+  def place_ship(ship, start, finish)
     ship_coord_start = location_keys[start]
     ship_coord_finish = location_keys[finish]
-    @board_layout[ship_coord_start[0]][ship_coord_start[1]] = "o"
-    @board_layout[ship_coord_finish[0]][ship_coord_finish[1]] = "o"
-    @board_layout
+    start = @board_layout[ship_coord_start[0]][ship_coord_start[1]]
+    finish = @board_layout[ship_coord_finish[0]][ship_coord_finish[1]]
+    if start == "." && finish == "."
+      @board_layout[ship_coord_start[0]][ship_coord_start[1]] = "o"
+      @board_layout[ship_coord_finish[0]][ship_coord_finish[1]] = "o"
+      @board_layout
+    else
+      p "That space is already occupied, please choose another space."
+    end
   end
 
   def location_keys
@@ -51,5 +57,4 @@ class Board
       "D4" => [3, 3]
     }
   end
-binding.pry
 end
