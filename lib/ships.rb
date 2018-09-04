@@ -1,8 +1,6 @@
-require './lib/board'
-
 class Ship
-
   attr_reader :length,
+              :sunk,
               :hits
 
   def initialize(length)
@@ -21,5 +19,4 @@ class Ship
   def hit
     @hits += 1
   end
-
 end
