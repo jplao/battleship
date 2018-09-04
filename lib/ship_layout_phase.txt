@@ -4,4 +4,13 @@ The first is two units long and the
 second is three units long.
 The grid has A1 at the top left and D4 at the bottom right.
 
+Note that there are certain restrictions on where a ship can be placed.
+
+Specifically:
+Ships cannot wrap around the board
+Ships cannot overlap
+Ships can be laid either horizontally or vertically
+Coordinates must correspond to the first and last units of the ship.
+(IE: You can’t place a two unit ship at “A1 A3”)
+
 Enter the squares for the two-unit ship:
