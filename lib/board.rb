@@ -1,5 +1,4 @@
 require 'pry'
-
 class Board
 
   attr_reader :board_layout
