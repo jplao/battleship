@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 require './lib/board'
 require './lib/ships'
 
@@ -78,6 +79,20 @@ class BoardTest < Minitest::Test
     assert_equal expected, board.place_ship(destroyer, "C3", "D3")
   end
 
+  def test_board_can_be_displayed
+    board = Board.new
+    destroyer = Ship.new(2)
+    board.place_ship(destroyer, "A1", "A2")
+    board.place_ship(destroyer, "C3", "D3")
+
+    expected =
+    [["o", "o", ".", "."],
+    [".", ".", ".", "."],
+    [".", ".", "o", "."],
+    [".", ".", "o", "."]]
+
+    assert_equal expected, board.display_board
+  end
 
   def test_two_ships_cant_overlap
     board = Board.new

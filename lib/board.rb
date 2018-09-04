@@ -24,6 +24,10 @@ class Board
     end
   end
 
+  def display_board
+    p @board_layout
+  end
+
   def location_keys
     { "A1" => [0, 0],
       "A2" => [0, 1],
