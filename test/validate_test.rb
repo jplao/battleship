@@ -21,5 +21,12 @@ class ValidateTest < Minitest::Test
     actual = validate.validate_destroyer_placement("A3 F1")
     assert_equal "That location does not exist.", actual
 
+    expected = "Ship start and end locations must be next to each other"
+    actual = validate.validate_destroyer_placement("A1 A4")
+    assert_equal expected, actual
+
+    expected = "Ship start and end locations must be next to each other"
+    actual = validate.validate_destroyer_placement("A1 C1")
+    assert_equal expected, actual
   end
 end
