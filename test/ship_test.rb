@@ -23,6 +23,7 @@ class ShipTest < Minitest::Test
   def test_ships_begin_not_sunk
     destroyer = Ship.new(2)
 
+    assert_equal false, destroyer.sunk
     assert_equal false, destroyer.sunk?
   end
 
@@ -35,7 +36,7 @@ class ShipTest < Minitest::Test
   def test_ships_can_be_hit
     submarine = Ship.new(3)
 
-    submarine.hit
+    assert_equal 1, submarine.hit
     assert_equal 1, submarine.hits
   end
 
@@ -43,12 +44,15 @@ class ShipTest < Minitest::Test
     submarine = Ship.new(3)
 
     submarine.hit
+    assert_equal 1, submarine.hits
     assert_equal false, submarine.sunk?
 
     submarine.hit
+    assert_equal 2, submarine.hits
     assert_equal false, submarine.sunk?
 
     submarine.hit
+    assert_equal 3, submarine.hits
     assert_equal true, submarine.sunk?
   end
 
