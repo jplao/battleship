@@ -1,4 +1,6 @@
 require './lib/board'
+require './lib/player'
+require '.lib/ship'
 
 class GamePlay
 
@@ -6,7 +8,6 @@ class GamePlay
     @player_ship_board = Board.new
     @player_guess_board = Board.new
     @ai_ship_board = Board.new
-    @ai_guess_board = Board.new
   end
 
   def ship_layout
@@ -22,16 +23,34 @@ class GamePlay
   def game_sequence
     player_shot
     ai_shot
-    all_ships_sunk?
   end
 
   def player_shot
+    coodinates = gets.chomp
+    shot = player.guess(coordinates)
+    #if shot == "o" on ai_ship_board
+      # then ship.hit
+      # put "h" on coodinates on player_guess_board
+      all_ships_sunk?
+    #else put "m" on coodinates on player_guess_board
+    #display player_guess_board
   end
 
   def ai_shot
+    shot = ai.guess
+    #if shot == "o" on player_ship_board
+      # then ship.hit
+      # put "h" on coodinates on player_ship_board
+      all_ships_sunk?
+    #else put "m" on coordinates on player_ship_board
+    #display player_ship_board
+    game_sequence
   end
 
   def all_ships_sunk?
+    #if destroyer.sunk? == true
+    # && submarine.sunk? == true
+      end_game_sequence
   end
 
   def end_game_sequence

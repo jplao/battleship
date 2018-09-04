@@ -12,25 +12,33 @@ class GamePlayTest < Minitest::Test
     assert_instance_of GamePlay, gameplay
   end
 
-  def test_intro_sequence_works
-    gameplay = GamePlay.new
-
-    assert_equal "Lets's start a new game!", gameplay.intro("p")
-    assert_equal "Lets's start a new game!", gameplay.intro("play")
-
-    instructions = File.open("./lib/instructions.txt", "r")
-    expected = p instructions.read
-    assert_equal expected, gameplay.intro("i")
-    assert_equal expected, gameplay.intro("instructions")
-
-    assert_equal "See you next time!", gameplay.intro("q")
-    assert_equal "See you next time!", gameplay.intro("quit")
-
-    assert gameplay.intro(1)
-  end
-
   def test_ship_layout_works
     gameplay = GamePlay.new
     assert gameplay.ship_layout
   end
+
+  def test_game_sequence
+    gameplay = GamePlay.new
+  end
+
+  def test_player_shot
+    gameplay = GamePlay.new
+
+  end
+
+  def test_ai_shot
+    gameplay = GamePlay.new
+
+  end
+
+  def test_all_ships_sunk?
+    gameplay = GamePlay.new
+
+  end
+
+  def test_end_game_sequence
+    gameplay = GamePlay.new
+
+  end
+
 end
