@@ -29,12 +29,12 @@ class GamePlay
   end
 
   def player_shot
-    coordinates = gets.chomp
-    shot = @player.guess(coordinates)
+
+    #shot = @player.guess(coordinates)
     #if shot == "o" on ai_ship_board
       # then ship.hit
       # put "h" on coodinates on player_guess_board
-      all_ships_sunk?(@player)
+    #  all_ships_sunk?(@player)
     #else put "m" on coodinates on player_guess_board
     #display player_guess_board
   end
@@ -51,16 +51,19 @@ class GamePlay
   end
 
   def all_ships_sunk?(player)
-    if player.destroyer.sunk? == true
-    && player.submarine.sunk? == true
-      end_game_sequence
+    if player.ships.all? do |ship|
+        ship.sunk?
+      end
+      true
     end
   end
 
   def end_game_sequence
-    puts "The computer made #{ai.guesses.count} shots."
-    puts "You made #{player.guesses.count} shots."
+    #puts "The computer made #{@ai.guesses.count} shots."
+    #puts "You made #{@player.guesses.count} shots."
+  end
 
+  def validate
   end
 
 end

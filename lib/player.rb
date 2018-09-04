@@ -13,8 +13,8 @@ class Player
   def guess(coordinates)
     if @guesses.include?(coordinates)
       p "You've already guessed that location. Please guess again"
-      new_coordinates = gets.chomp
-      guess(new_coordinates)
+#      new_coordinates = gets.chomp
+#      guess(new_coordinates)
     else
       @guesses << coordinates
     end
