@@ -52,14 +52,4 @@ class ShipTest < Minitest::Test
     assert_equal true, submarine.sunk?
   end
 
-  def test_ships_can_be_placed_horizontally
-    destroyer = Ship.new(2)
-
-    destroyer.place(1, 1, true)
-    assert destroyer.covers?(1, 1)
-    assert destroyer.covers?(2, 1)
-    refute destroyer.covers?(3, 1)
-    refute destroyer.covers?(0, 1)
-    assert destroyer.covers?(1, 2)
-  end
 end

@@ -29,4 +29,8 @@ class GamePlayTest < Minitest::Test
     assert gameplay.intro(1)
   end
 
+  def test_ship_layout_works
+    gameplay = GamePlay.new
+    assert gameplay.ship_layout
+  end
 end

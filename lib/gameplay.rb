@@ -5,10 +5,9 @@ class GamePlay
   def intro(response)
     if ["p", "play"].include? response.to_s
       p "Lets's start a new game!"
-      ship_layout
     elsif ["i", "instructions"].include? response.to_s
       instructions = File.open("./lib/instructions.txt", "r")
-      puts instructions.read
+      p instructions.read
     elsif ["q", "quit"].include? response.to_s
       p "See you next time!"
     else
@@ -28,4 +27,5 @@ class GamePlay
     player_submarine_location = gets.chomp
     player_submarine_location.upcase!
   end
+
 end
