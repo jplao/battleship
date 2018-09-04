@@ -5,6 +5,7 @@ class Board
 
   def intitialize
     @board_layout
+    @ships = []
   end
 
   def new_game_board
