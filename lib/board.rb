@@ -1,7 +1,8 @@
 require 'pry'
 class Board
 
-  attr_reader :board_layout
+  attr_reader :board_layout,
+              :ships
 
   def intitialize
     @board_layout
