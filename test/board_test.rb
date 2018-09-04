@@ -2,6 +2,7 @@ require 'simplecov'
 SimpleCov.start
 require 'minitest/autorun'
 require 'minitest/pride'
+require 'pry'
 require './lib/board'
 require './lib/ships'
 
@@ -21,7 +22,13 @@ class BoardTest < Minitest::Test
     [".", ".", ".", "."],
     [".", ".", ".", "."]]
 
-    assert_equal expected, board.new_game_board
+    assert_equal expected, board.board_layout
+  end
+
+  def test_ships_start_empty
+    board = Board.new
+
+    assert_equal [], board.ships
   end
 
   def test_location_keys_returns_an_array
@@ -35,7 +42,6 @@ class BoardTest < Minitest::Test
   def test_it_can_place_two_unit_ship_horizonal
     board = Board.new
     destroyer = Ship.new(2)
-    board.new_game_board
 
     expected =
     [["o", "o", ".", "."],
@@ -49,7 +55,6 @@ class BoardTest < Minitest::Test
   def test_it_can_place_two_unit_ship_vertical
     board = Board.new
     destroyer = Ship.new(2)
-    board.new_game_board
 
     expected =
     [[".", ".", ".", "."],
@@ -63,7 +68,6 @@ class BoardTest < Minitest::Test
   def test_it_can_hold_two_ships
     board = Board.new
     destroyer = Ship.new(2)
-    board.new_game_board
     board.place_ship(destroyer, "A1", "A2")
 
     expected =
@@ -75,11 +79,24 @@ class BoardTest < Minitest::Test
     assert_equal expected, board.place_ship(destroyer, "C3", "D3")
   end
 
+  def test_board_can_be_displayed
+    board = Board.new
+    destroyer = Ship.new(2)
+    board.place_ship(destroyer, "A1", "A2")
+    board.place_ship(destroyer, "C3", "D3")
+
+    expected =
+    [["o", "o", ".", "."],
+    [".", ".", ".", "."],
+    [".", ".", "o", "."],
+    [".", ".", "o", "."]]
+
+    assert_equal expected, board.display_board
+  end
 
   def test_two_ships_cant_overlap
     board = Board.new
     destroyer = Ship.new(2)
-    board.new_game_board
     board.place_ship(destroyer, "A1", "A2")
 
     expected = "That space is already occupied, please choose another space."

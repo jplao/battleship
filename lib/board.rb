@@ -1,28 +1,14 @@
 require 'pry'
 class Board
 
-  attr_reader :board_layout
+  attr_reader :board_layout,
+              :ships
 
-  def intitialize
-    @board_layout
+  def initialize
+    @board_layout = Array.new(4, ".").map{|row| Array.new(4, ".")}
     @ships = []
   end
 
-  def new_game_board
-    board = Array.new(4, ".").map{|row| Array.new(4, ".")}
-    row_label = ["1", "2", "3", "4"]
-    column_label = ["A", "B", "C", "D"]
-
-    print "\t"
-    print row_label.join("\t")
-    print "\n"
-    @board_layout = board.each_with_index do |row, i|
-      print column_label[i]
-      print "\t"
-      print row.join("\t")
-    print "\n"
-    end
-  end
 
   def place_ship(ship, start, finish)
     ship_coord_start = location_keys[start]
@@ -36,6 +22,10 @@ class Board
     else
       p "That space is already occupied, please choose another space."
     end
+  end
+
+  def display_board
+    p @board_layout
   end
 
   def location_keys
