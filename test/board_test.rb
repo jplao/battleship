@@ -24,6 +24,12 @@ class BoardTest < Minitest::Test
     assert_equal expected, board.board_layout
   end
 
+  def test_ships_start_empty
+    board = Board.new
+
+    assert_equal [], board.ships
+  end
+
   def test_location_keys_returns_an_array
     board = Board.new
 
