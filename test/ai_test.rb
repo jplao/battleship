@@ -24,6 +24,7 @@ class AITest < Minitest::Test
   end
 
   def test_ai_can_store_guesses
+    skip
     ai = AI.new
 
     guess_1 = ai.guess("B4")
@@ -34,6 +35,7 @@ class AITest < Minitest::Test
   end
 
   def test_ai_does_not_make_same_guess
+    skip
     ai = AI.new
 
     guess_1 = ai.guess("A1")

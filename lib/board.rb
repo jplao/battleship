@@ -49,4 +49,3 @@ class Board
       "D4" => [3, 3]}
   end
 end
-binding.pry

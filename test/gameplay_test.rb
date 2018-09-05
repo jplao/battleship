@@ -39,9 +39,9 @@ class GamePlayTest < Minitest::Test
   end
 
   def test_all_ships_sunk?
+    skip
     gameplay = GamePlay.new
     player = Player.new
-    player.add_ships
     player.ships[0].hit
     player.ships[0].hit
     player.ships[1].hit
