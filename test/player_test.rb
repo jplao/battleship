@@ -17,6 +17,12 @@ class PlayerTest < Minitest::Test
     assert_equal [], player.guesses
   end
 
+  def test_player_ships_start_empty
+    player = Player.new
+
+    assert_equal [], player.ships
+  end
+
   def test_player_can_store_guesses
     player = Player.new
 
@@ -33,8 +39,14 @@ class PlayerTest < Minitest::Test
     guess_1 = player.guess("A1")
     guess_2 = player.guess("B4")
 
-    refute_equal "A1", player.guess("A1")
     refute_equal "B4", player.guess("A1")
+  end
+
+  def test_it_can_add_ships
+    player = Player.new
+
+    expected = player.ships
+    assert_equal expected, player.add_ships
   end
 
 end
