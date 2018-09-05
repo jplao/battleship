@@ -18,19 +18,27 @@ class GamePlay
     # AI places ships
     layout_phase = File.open("./lib/ship_layout_phase.txt", "r")
     puts layout_phase.read
-    player_ship_placement
+    player_destroyer_placement
   end
 
-  def player_ship_placement
+  def player_destroyer_placement
     validate_response = false
     while validate_response == false
       player_destroyer_location = gets.chomp.upcase
-      validate_response = @validate.validate_destroyer_placement(player_destroyer_location)
+      validate_response = @validate.validate_ship_placement(player_destroyer_location, 2)
     end
+    @player.ships << player_destroyer_location
+    player_submarine_placement
+  end
 
+  def player_submarine_placement
     puts "Enter the location for the three-unit ship"
-    player_submarine_location = gets.chomp
-
+    validate_response = false
+    while validate_response == false
+      player_submarine_location = gets.chomp.upcase
+      validate_response = @validate.validate_ship_placement(player_submarine_location, 3)
+    end
+    @player.ships << player_submarine_location
     game_sequence
   end
 

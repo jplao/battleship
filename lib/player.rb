@@ -1,9 +1,8 @@
 require './lib/ships'
 
 class Player
-
-  attr_reader :guesses,
-              :ships
+  attr_reader   :guesses
+  attr_accessor :ships
 
   def initialize
     @guesses = []

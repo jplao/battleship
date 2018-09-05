@@ -1,7 +1,7 @@
 require './lib/board'
 class Validate
 
-  def validate_destroyer_placement(input)
+  def validate_ship_placement(input, ship_size)
     board = Board.new
     ship_coords = input.split
     start_coords = board.location_keys[ship_coords[0]]
@@ -9,11 +9,11 @@ class Validate
     if start_coords == nil || end_coords == nil
       puts "That location does not exist."
       return false
-    elsif ((end_coords[0] - start_coords[0]) > 1) || (end_coords[1] - start_coords[1]) > 1
-      puts "Destroyer start and end locations must be next to each other"
+    elsif ((end_coords[0] - start_coords[0]) > (ship_size - 1)) || (end_coords[1] - start_coords[1]) > (ship_size - 1)
+      puts "Start and end locations must be #{ship_size} units apart"
       return false
     else
-      puts "Your destroyer location has been recorded"
+      puts "Your ship location has been recorded"
       true
     end
   end
