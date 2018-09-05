@@ -21,6 +21,9 @@ class ValidateTest < Minitest::Test
     actual = validate.validate_ship_placement("A1 A4", 2)
     assert_equal false, actual
 
+    actual = validate.validate_ship_placement("A1 B2", 2)
+    assert_equal false, actual
+
     actual = validate.validate_ship_placement("B1 C1", 2)
     assert_equal true, actual
 
@@ -33,6 +36,9 @@ class ValidateTest < Minitest::Test
     assert_equal false, actual
 
     actual = validate.validate_ship_placement("A1 D1", 3)
+    assert_equal false, actual
+
+    actual = validate.validate_ship_placement("A1 C2", 2)
     assert_equal false, actual
 
     actual = validate.validate_ship_placement("B1 B3", 3)

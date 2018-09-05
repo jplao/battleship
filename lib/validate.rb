@@ -12,6 +12,9 @@ class Validate
     elsif ((end_coords[0] - start_coords[0]) > (ship_size - 1)) || (end_coords[1] - start_coords[1]) > (ship_size - 1)
       puts "Start and end locations must be #{ship_size} units apart"
       return false
+    elsif start_coords[0] != end_coords [0] && start_coords[1] != end_coords[1]
+      puts "Ships cannot be placed diagonally"
+      return false
     else
       puts "Your ship location has been recorded"
       true
