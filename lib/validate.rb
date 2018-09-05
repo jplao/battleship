@@ -15,7 +15,7 @@ class Validate
       return false
     else
       puts "Your destroyer location has been recorded"
-      return true
+      true
     end
   end
 

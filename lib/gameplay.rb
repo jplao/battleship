@@ -2,24 +2,35 @@ require './lib/board'
 require './lib/player'
 require './lib/ships'
 require './lib/ai'
+require './lib/validate'
 
 class GamePlay
 
   def initialize
-    @player_ship_board = Board.new
     @player_guess_board = Board.new
     @ai_ship_board = Board.new
     @player = Player.new
     @ai = AI.new
+    @validate = Validate.new
   end
 
   def ship_layout
     # AI places ships
     layout_phase = File.open("./lib/ship_layout_phase.txt", "r")
     puts layout_phase.read
-    player_destroyer_location = gets.chomp
+    player_ship_placement
+  end
+
+  def player_ship_placement
+    validate_response = false
+    while validate_response == false
+      player_destroyer_location = gets.chomp.upcase
+      validate_response = @validate.validate_destroyer_placement(player_destroyer_location)
+    end
+
     puts "Enter the location for the three-unit ship"
     player_submarine_location = gets.chomp
+
     game_sequence
   end
 
