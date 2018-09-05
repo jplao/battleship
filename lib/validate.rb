@@ -1,5 +1,4 @@
 require './lib/board'
-
 class Validate
 
   def validate_destroyer_placement(input)
@@ -18,5 +17,4 @@ class Validate
       true
     end
   end
-
 end
