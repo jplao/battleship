@@ -25,7 +25,9 @@ class Board
   end
 
   def display_board
-    p @board_layout
+    @board_layout.each do |x|
+      puts x.join(" ")
+    end
   end
 
   def location_keys
@@ -47,3 +49,4 @@ class Board
       "D4" => [3, 3]}
   end
 end
+binding.pry

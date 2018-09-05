@@ -7,8 +7,8 @@ require './lib/validate'
 class GamePlay
 
   def initialize
-    @player_guess_board = Board.new
-    @ai_ship_board = Board.new
+    @player_board = Board.new
+    @ai_board = Board.new
     @player = Player.new
     @ai = AI.new
     @validate = Validate.new

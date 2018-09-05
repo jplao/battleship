@@ -9,22 +9,18 @@ class Player
     @ships = []
   end
 
-  def guess(coordinates)
-    if @guesses.include?(coordinates)
-      p "You've already guessed that location. Please guess again"
-#      new_coordinates = gets.chomp
-#      guess(new_coordinates)
-    else
-      @guesses << coordinates
+  def guess
+    guessed_coords = true
+    while guessed_coords == true
+      coordinates = gets.chomp.upcase
+      if guessed_coords = @guesses.include? coordinates
+        puts "You've already guessed that location. Please guess again"
+        return guessed_coords
+      else
+        puts "Your guess has been recorded."
+        @guesses << coordinates
+      end
     end
     coordinates
   end
-
-  def add_ships
-    destroyer = Ship.new(2)
-    submarine = Ship.new(3)
-    @ships << destroyer
-    @ships << submarine
-  end
-
 end
