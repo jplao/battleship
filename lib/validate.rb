@@ -16,10 +16,11 @@ class Validate
     elsif start_coords[0] != end_coords [0] && start_coords[1] != end_coords[1]
       puts "Ships cannot be placed diagonally"
       return false
-    #elsif player.ships.include? ship_coords
-      #puts "That space already has a ship"
+    #elsif ships.include? ship_coords
+      #"That space already has a ship"
       #return false
     else
+      ships << ship_coords
       puts "Your ship location has been recorded"
       true
     end

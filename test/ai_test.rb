@@ -44,11 +44,17 @@ class AITest < Minitest::Test
     refute_equal ["A1", "A1"], ai.guesses
   end
 
-
   def test_ai_can_add_ships
     ai = AI.new
 
     expected = ai.ships
     assert_equal expected, ai.add_ships
   end
+
+  def test_ai_can_randommize_horizontal_or_vertical
+    ai = AI.new
+
+    assert_equal "horizontal" || "vertical", ai.horizontal_or_vertical
+  end
+
 end

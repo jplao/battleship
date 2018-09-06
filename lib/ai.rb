@@ -17,6 +17,15 @@ class AI
 #    end
 #    coordinates.to_s
 #  end
+  def horizontal_or_vertical
+    dir = rand(1..2)
+    if dir = 1
+      "horizontal"
+    else
+      "vertical"
+    end
+  end
+
 
   def add_ships
     destroyer = Ship.new(2)
