@@ -63,4 +63,10 @@ class AITest < Minitest::Test
     assert ai.randomize_start_location_of_ship
   end
 
+  def test_ai_can_place_destroyer
+    ai = AI.new
+
+    assert ai.place_destroyer
+  end
+
 end
