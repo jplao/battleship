@@ -7,8 +7,8 @@ require './lib/validate'
 class GamePlay
 
   def initialize
-    @player_guess_board = Board.new
-    @ai_ship_board = Board.new
+    @player_board = Board.new
+    @ai_board = Board.new
     @player = Player.new
     @ai = AI.new
     @validate = Validate.new
@@ -17,7 +17,7 @@ class GamePlay
   def ship_layout
     # AI places ships
     layout_phase = File.open("./lib/ship_layout_phase.txt", "r")
-    puts layout_phase.read
+    print layout_phase.read
     player_destroyer_placement
   end
 
@@ -32,7 +32,7 @@ class GamePlay
   end
 
   def player_submarine_placement
-    puts "Enter the location for the three-unit ship"
+    puts "Enter the start and end locations for the three-unit ship"
     validate_response = false
     while validate_response == false
       player_submarine_location = gets.chomp.upcase
@@ -48,8 +48,10 @@ class GamePlay
   end
 
   def player_shot
-
-    #shot = @player.guess(coordinates)
+    @ai_board.display_board
+    puts "Please enter a coordinate to fire on"
+    coordinates = gets.chomp
+    shot = @player.guess(coordinates)
     #if shot == "o" on ai_ship_board
       # then ship.hit
       # put "h" on coodinates on player_guess_board
@@ -59,14 +61,14 @@ class GamePlay
   end
 
   def ai_shot
-    shot = @ai.guess
+    #shot = @ai.guess
     #if shot == "o" on player_ship_board
       # then ship.hit
       # put "h" on coodinates on player_ship_board
-      all_ships_sunk?(@ai)
+    #  all_ships_sunk?(@ai)
     #else put "m" on coordinates on player_ship_board
     #display player_ship_board
-    game_sequence
+    #game_sequence
   end
 
   def all_ships_sunk?(player)
@@ -81,8 +83,4 @@ class GamePlay
     #puts "The computer made #{@ai.guesses.count} shots."
     #puts "You made #{@player.guesses.count} shots."
   end
-
-  def validate
-  end
-
 end

@@ -13,7 +13,7 @@ class Battleship
       print "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"
       intro
     elsif ["q", "quit"].include? response.to_s
-      puts "See you next time!"
+      p "See you next time!"
     else
       print "That is not a valid response, please try again"
       print "Would you like to (p)lay, read the (i)nstructions, or (q)uit?"

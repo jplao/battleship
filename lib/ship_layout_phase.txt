@@ -13,4 +13,4 @@ Ships can be laid either horizontally or vertically
 Coordinates must correspond to the first and last units of the ship.
 (IE: You can’t place a two unit ship at “A1 A3”)
 
-Enter the squares for the two-unit ship:
+Enter the start and end locations for the two-unit ship:

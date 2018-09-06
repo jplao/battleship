@@ -1,4 +1,5 @@
 require './lib/ships'
+require './lib/validate'
 
 class Player
   attr_reader   :guesses
@@ -7,24 +8,21 @@ class Player
   def initialize
     @guesses = []
     @ships = []
+    @validate = Validate.new
   end
 
-  def guess(coordinates)
-    if @guesses.include?(coordinates)
-      p "You've already guessed that location. Please guess again"
-#      new_coordinates = gets.chomp
-#      guess(new_coordinates)
+  def guess(coord)
+    if @guesses.include? (coord)
+      guessed_coords = true
+      while guessed_coords == true
+        guess = gets.chomp.upcase
+        guessed_coords = @validate.validate_guess_is_a_valid_coordinate(guess)
+      end
+      @guesses << guess
+      puts "Your guess has been recorded."
     else
-      @guesses << coordinates
     end
-    coordinates
+    @guesses << coord
+    coord
   end
-
-  def add_ships
-    destroyer = Ship.new(2)
-    submarine = Ship.new(3)
-    @ships << destroyer
-    @ships << submarine
-  end
-
 end

@@ -41,12 +41,4 @@ class PlayerTest < Minitest::Test
 
     refute_equal "B4", player.guess("A1")
   end
-
-  def test_it_can_add_ships
-    player = Player.new
-
-    expected = player.ships
-    assert_equal expected, player.add_ships
-  end
-
 end

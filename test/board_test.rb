@@ -39,69 +39,14 @@ class BoardTest < Minitest::Test
     assert_nil board.location_keys["F7"]
   end
 
-  def test_it_can_place_two_unit_ship_horizonal
+  def test_it_can_display_board
     board = Board.new
-    destroyer = Ship.new(2)
-
-    expected =
-    [["o", "o", ".", "."],
-    [".", ".", ".", "."],
-    [".", ".", ".", "."],
-    [".", ".", ".", "."]]
-
-    assert_equal expected, board.place_ship(destroyer, "A1", "A2")
-  end
-
-  def test_it_can_place_two_unit_ship_vertical
-    board = Board.new
-    destroyer = Ship.new(2)
 
     expected =
     [[".", ".", ".", "."],
     [".", ".", ".", "."],
-    [".", ".", "o", "."],
-    [".", ".", "o", "."]]
-
-    assert_equal expected, board.place_ship(destroyer, "C3", "D3")
-  end
-
-  def test_it_can_hold_two_ships
-    board = Board.new
-    destroyer = Ship.new(2)
-    board.place_ship(destroyer, "A1", "A2")
-
-    expected =
-    [["o", "o", ".", "."],
     [".", ".", ".", "."],
-    [".", ".", "o", "."],
-    [".", ".", "o", "."]]
-
-    assert_equal expected, board.place_ship(destroyer, "C3", "D3")
-  end
-
-  def test_board_can_be_displayed
-    board = Board.new
-    destroyer = Ship.new(2)
-    board.place_ship(destroyer, "A1", "A2")
-    board.place_ship(destroyer, "C3", "D3")
-
-    expected =
-    [["o", "o", ".", "."],
-    [".", ".", ".", "."],
-    [".", ".", "o", "."],
-    [".", ".", "o", "."]]
-
+    [".", ".", ".", "."]]
     assert_equal expected, board.display_board
   end
-
-  def test_two_ships_cant_overlap
-    board = Board.new
-    destroyer = Ship.new(2)
-    board.place_ship(destroyer, "A1", "A2")
-
-    expected = "That space is already occupied, please choose another space."
-
-    assert_equal expected, board.place_ship(destroyer, "A2", "A3")
-  end
-
 end

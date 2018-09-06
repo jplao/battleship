@@ -9,23 +9,10 @@ class Board
     @ships = []
   end
 
-
-  def place_ship(ship, start, finish)
-    ship_coord_start = location_keys[start]
-    ship_coord_finish = location_keys[finish]
-    start = @board_layout[ship_coord_start[0]][ship_coord_start[1]]
-    finish = @board_layout[ship_coord_finish[0]][ship_coord_finish[1]]
-    if start == "." && finish == "."
-      @board_layout[ship_coord_start[0]][ship_coord_start[1]] = "o"
-      @board_layout[ship_coord_finish[0]][ship_coord_finish[1]] = "o"
-      @board_layout
-    else
-      p "That space is already occupied, please choose another space."
-    end
-  end
-
   def display_board
-    p @board_layout
+    @board_layout.each do |x|
+      p x.join(" ")
+    end
   end
 
   def location_keys

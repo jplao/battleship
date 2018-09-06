@@ -24,4 +24,13 @@ class Validate
       true
     end
   end
+
+  def validate_guess_is_a_valid_coordinate(guess)
+    board = Board.new
+    guessed_coords = board.location_keys[guess]
+    if guessed_coords == nil
+      puts "That location does not exist."
+    end
+    false
+  end
 end
