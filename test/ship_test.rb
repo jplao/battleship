@@ -55,5 +55,4 @@ class ShipTest < Minitest::Test
     assert_equal 3, submarine.hits
     assert_equal true, submarine.sunk?
   end
-
 end
