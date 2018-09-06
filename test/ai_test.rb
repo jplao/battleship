@@ -54,7 +54,13 @@ class AITest < Minitest::Test
   def test_ai_can_randommize_horizontal_or_vertical
     ai = AI.new
 
-    assert_equal "horizontal" || "vertical", ai.horizontal_or_vertical
+    assert ai.horizontal_or_vertical
+  end
+
+  def test_ai_can_randomize_start_location_of_ship
+    ai = AI.new
+
+    assert ai.randomize_start_location_of_ship
   end
 
 end
