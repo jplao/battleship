@@ -24,18 +24,16 @@ class AITest < Minitest::Test
   end
 
   def test_ai_can_store_guesses
-    skip
     ai = AI.new
 
     guess_1 = ai.guess("B4")
-    guess_2 = ai.guess("A1")
+    assert_equal [guess_1], ai.guesses
 
-    assert_equal "A1", guess_2
+    guess_2 = ai.guess("A1")
     assert_equal [guess_1, guess_2], ai.guesses
   end
 
   def test_ai_does_not_make_same_guess
-    skip
     ai = AI.new
 
     guess_1 = ai.guess("A1")
@@ -44,11 +42,29 @@ class AITest < Minitest::Test
     refute_equal ["A1", "A1"], ai.guesses
   end
 
-
   def test_ai_can_add_ships
     ai = AI.new
 
     expected = ai.ships
     assert_equal expected, ai.add_ships
   end
+
+  def test_ai_can_randommize_horizontal_or_vertical
+    ai = AI.new
+
+    assert ai.horizontal_or_vertical
+  end
+
+  def test_ai_can_randomize_start_location_of_ship
+    ai = AI.new
+
+    assert ai.randomize_start_location_of_ship
+  end
+
+  def test_ai_can_place_destroyer
+    ai = AI.new
+
+    assert ai.place_destroyer
+  end
+
 end
