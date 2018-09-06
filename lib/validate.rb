@@ -20,7 +20,6 @@ class Validate
       #"That space already has a ship"
       #return false
     else
-      ships << ship_coords
       puts "Your ship location has been recorded"
       true
     end

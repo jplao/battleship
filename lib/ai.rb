@@ -52,7 +52,7 @@ class AI
 
   def horizontal_or_vertical
     dir = rand(1..2)
-    if dir = 1
+    if dir == 1
       "horizontal"
     else
       "vertical"
